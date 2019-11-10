@@ -1,0 +1,121 @@
+
+<div class="bod">
+  <section class="banner" style="background-image: url(<%= @picture %>);height:50%;"> 
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="left-side">
+                       <div class="logo">
+                          <div style="text-align:center; color:white;" >
+                             <h1 > <strong>Live Currency converter </strong></h1>
+                             <h3> <strong> Convert your Money into Foreign Currencies </strong></h3>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <section id="first-tab-group" class="tabgroup">
+                        <div id="tab1">
+                            <div class="submit-form">
+                               <form method="post" action="/newConversion"  id="form-submit" >
+                                   <strong><h1  style="text-align:center; " >Convert Now </h1></strong>
+                                   <hr/>
+                                 <div class="row">
+                                   <div class="col-md-8 col-md-offset-2" >
+                                        <fieldset>
+                                            <label class="col-md-9 col-md-offset-4" for="Amount">Amount</label>
+                                            <input name="Amount"  value="1" type="text" class="form-control date" id="Amount" placeholder="Amount..." >
+                                            </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <label for="from">From:</label>
+                                            <select id="from" name="from"   class="form-control my_select">		
+	                                            <% @ap.each do |k,v| a=k[3..5] %>
+					                                <option value="<%= a%>" name="<%= a%>"><%= a%></option>
+					                            <% end%>
+				                            </select>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <label for="to">To:</label>
+                                            <select id="to" name="to" class="form-control my_select">
+                                                <% @ap.each do |k,v| a=k[3..5] %>
+					                                <option value="<%= a%>" name="<%= a%>"><%= a%></option>
+					                            <% end%>
+				                            </select>
+                                        </fieldset>
+                                    </div>
+                                       
+                                    <div class="col-md-8 col-md-offset-2" >
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" class="btn">Convert</button>
+                                        </fieldset>
+                                    </div>
+                                            
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <fieldset>
+                                            <label class="col-md-9 col-md-offset-4" for="result">Result</label>
+                                            <input name="result" type="text"  value="<%= @result%>" class="form-control date" id="result" placeholder="REsult..." >
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-8 col-md-offset-2 style="text-align:center;">
+                                        <%if @result!= nil%>
+                                            <p> <b> 1 </b> <%= @from %> =  <b style="font-size: 25px;"> <%= @rate %></b>  <%= @to %> </p> 
+                                            <p > <b style="font-size: 20px;"> Convertion Time : </b>  <%= @date %>  </p>  
+                                        <%end%>
+                                    </div>
+                                 </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+	            </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div>
+   <div class="col-md-8 col-md-offset-3">
+        <div  class="page-direction-button">
+            <h1 style="color:red;" > <strong> Check The History of Conversions </strong></h1>
+        </div>
+    </div>
+</div>
+
+<div>
+	<table>
+      <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Amount</th>
+            <th scope="col">From</th>
+            <th scope="col">To </th>
+			<th scope="col">Result </th>
+            <th scope="col"> Rate </th>
+			<th scope="col">Conversion Date </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%if @conversions!= nil%>
+		   <% @conversions.each do |c| %>
+		     <tr> 
+                <td><strong><%= c.id %></strong></td>
+                <td><strong><%= c.Amount %></strong></td>
+                <td><strong><%= c.from %></strong> </td> 
+                <td> <strong><%= c.to %></strong></td>
+				<td> <strong><%= c.result %></strong></td>
+				<td>  <strong><%= c.rate %></strong></td>
+			 	<td> <strong><%= c.conversion_Date %></strong></td>
+             </tr>
+            <% end %>
+		<% end %>
+         
+     </tbody>
+    </table>
+</div>
+		
+		  
+
+
