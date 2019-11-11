@@ -2,17 +2,23 @@ require 'money/bank/currencylayer_bank'
 
 module Currency
              
-            $mclb = Money::Bank::CurrencylayerBank.new
-            $mclb.access_key =$api_key
-            $mclb.cache = 'cache'
-            $api=$mclb.update_rates(false)
-            Money.default_bank = $mclb
-            I18n.enforce_available_locales=false
+        I18n.enforce_available_locales=false
+
+        
+        pictures=Dir.glob("public/assets/img/*.{jpg,JPG}")
+        pictures.each{ |p|
+            $picture_bg=p.sub!(/public\//, '') 
+        }
+    
+    
+    
+        $mclb = Money::Bank::CurrencylayerBank.new
+        $mclb.access_key =$api_key
+        $mclb.cache = 'cache'
+        $api=$mclb.update_rates(false)
+        Money.default_bank = $mclb
             
-            pictures=Dir.glob("public/assets/img/*.{jpg,JPG}")
-            pictures.each{ |p|
-             $picture_bg=p.sub!(/public\//, '') 
-            }
+          
             
         def calculConversion(from,to,amount)
             

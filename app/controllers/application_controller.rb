@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
 	
 	include Currency
 	
-	h_api=$api
+	data_api=$api
 	background_pic=$picture_bg
 	
   
@@ -26,26 +26,28 @@ class ApplicationController < Sinatra::Base
 	  end
 	
 	
-	#getting all convertions done
+	#getting all conversions from database
 	get '/' do
-		@ap=h_api
+		@ap=data_api
 		@conversions = Conversion.all
 		@picture=background_pic
-		#@convertions.each { |c| puts "to #{c.to}, from #{c.from} with rate #{c.rate}"}
-	erb :index
-	end
-	
-	get '/refresh' do
 		
+	erb :index
+	
+    end
+	
+	#refreshing the view after conversion with details
+	get '/refresh' do
 		@result= params[:result]
 		@date= params[:date]
 		@rate = params[:rate]
 		@from=params[:from]
 		@to=params[:to]
-		@ap=h_api
+		@ap=data_api
 		@picture=background_pic
 		@conversions = Conversion.all
 		erb :index
+
 	end
 	 
 end

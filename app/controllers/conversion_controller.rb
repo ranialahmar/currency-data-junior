@@ -6,6 +6,7 @@ class ConversionController < ApplicationController
 	
 	post'/newConversion' do
 		
+		#getting data from inputs
 		@Amount=params[:Amount].to_f
 		@from=params[:from]
 		@to=params[:to]
@@ -13,6 +14,7 @@ class ConversionController < ApplicationController
 		#Conversion_result
 		h_result = calculConversion(@from, @to, @Amount)
 		
+		#result details 
 		@result=h_result[:conversion_result].to_f
 		@date=h_result[:date]
 		@rate=h_result[:rate].to_f
