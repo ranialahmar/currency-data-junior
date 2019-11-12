@@ -45,9 +45,15 @@ class ApplicationController < Sinatra::Base
 		@to=params[:to]
 		@ap=data_api
 		@picture=background_pic
-		@conversions = Conversion.all
+		
 		erb :index
 
+	end
+	
+	get '/History' do
+		@conversions = Conversion.all
+		erb :history
+		
 	end
 	 
 end
