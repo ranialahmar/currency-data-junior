@@ -6,7 +6,7 @@
                 <div class="col-md-5">
                     <div class="left-side">
                        <div class="logo">
-                          <div style="text-align:center; color:white;" >
+                          <div style="text-align:left; color:white;" >
                              <h1 > <strong>Live Currency converter </strong></h1>
                              <h3> <strong> Convert your Money into Foreign Currencies </strong></h3>
                           </div>
@@ -58,6 +58,7 @@
                                           <fieldset> 
                                             <h1> Result : <strong  style="color:red;"> <%= @result%> </strong> <br/></h1>
                                           </fieldset>
+                                           <p > <b  style="font-size: 20px;"> <%= @Amount %> </b> <%= @from %> =  <b style="font-size: 25px;"> <%= @result %></b>  <%= @to %> </p> 
                                           <p > <b  style="font-size: 20px;"> 1 </b> <%= @from %> =  <b style="font-size: 25px;"> <%= @rate %></b>  <%= @to %> </p> 
                                           <p > <b style="font-size: 20px;"> Convertion Time : </b>  <%= @date %>  </p>  
                                         <%end%>

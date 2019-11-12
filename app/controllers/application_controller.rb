@@ -41,6 +41,7 @@ class ApplicationController < Sinatra::Base
 		@result= params[:result]
 		@date= params[:date]
 		@rate = params[:rate]
+		@Amount=params[:Amount]
 		@from=params[:from]
 		@to=params[:to]
 		@ap=data_api
@@ -50,6 +51,7 @@ class ApplicationController < Sinatra::Base
 
 	end
 	
+	#get all conversions done
 	get '/History' do
 		@conversions = Conversion.all
 		erb :history

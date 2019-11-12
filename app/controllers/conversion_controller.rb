@@ -18,7 +18,7 @@ class ConversionController < ApplicationController
 		@result=h_result[:conversion_result].to_f
 		@date=h_result[:date]
 		@rate=h_result[:rate].to_f
-	
+
 		#add the new conversion in the database
 		@new_conversion=Conversion.new(from: @from,to:@to,Amount:@Amount,result:@result,rate:@rate,conversion_Date:@date)
 		
@@ -30,7 +30,7 @@ class ConversionController < ApplicationController
 		
 		
 			
-		redirect "/refresh?result=#{@result}&rate=#{@rate}&date=#{@date}&from=#{@from}&to=#{@to}"
+		redirect "/refresh?result=#{@result}&rate=#{@rate}&Amount=#{@Amount}&date=#{@date}&from=#{@from}&to=#{@to}"
 	
 	end 
 	
