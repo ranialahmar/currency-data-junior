@@ -7,13 +7,12 @@ require 'sass'
 require 'coffee-script'
 require 'execjs'
 
-
-# For the documentation check http://sinatrarb.com/intro.html
 class ApplicationController < Sinatra::Base
 	
 	
 	include Currency
 	
+	#load all api data and background picture
 	data_api=$api
 	background_pic=$picture_bg
 	
@@ -22,8 +21,7 @@ class ApplicationController < Sinatra::Base
     	set :views, "app/views"
 		set :public_dir, "public"
 		
-
-	  end
+	end
 	
 	
 	#getting all conversions from database
@@ -35,6 +33,8 @@ class ApplicationController < Sinatra::Base
 	erb :index
 	
     end
+	
+	
 	
 	#refreshing the view after conversion with details
 	get '/refresh' do

@@ -29,7 +29,6 @@ class ConversionController < ApplicationController
 		end
 		
 		
-		
 			
 		redirect "/refresh?result=#{@result}&rate=#{@rate}&date=#{@date}&from=#{@from}&to=#{@to}"
 	
