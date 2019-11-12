@@ -150,9 +150,6 @@ p {
 	cursor: pointer;
 }
 
-.submit-form .radio-select {
-	margin-top: 15px;
-}
 
 .submit-form button {
 	margin-top: 15px;
@@ -207,17 +204,9 @@ p {
 		
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) {	}
 
-
-	
-}
-
-@media (max-width: 480px) {
-
-
-
-}
+@media (max-width: 480px) {}
 
 /****/
 
@@ -291,16 +280,6 @@ fieldset {
     border: 1px solid #c0c0c0;
 }
 
-table {
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-td,
-th {
-    padding: 0;
-}
-
 tr,
 img {
     page-break-inside: avoid;
@@ -317,31 +296,12 @@ h3 {
     widows: 3;
 }
 
-h2,
-h3 {
-    page-break-after: avoid;
-}
-
 select {
     background: #fff !important;
 }
 
 .label {
     border: 1px solid #000;
-}
-
-.table {
-    border-collapse: collapse !important;
-}
-
-.table td,
-.table th {
-    background-color: #fff !important;
-}
-
-.table-bordered th,
-.table-bordered td {
-    border: 1px solid #ddd !important;
 }
 
 * {
