@@ -1,4 +1,4 @@
-<h1>  <strong class="col-md-8 col-md-offset-2" style="text-align:center; color:red;" >You find here the history of all conversions </strong></h1>
+<h1>  <strong class="col-md-8 col-md-offset-2" style="text-align:center; color:red;" > The history of all conversions </strong></h1>
 
 <div>
 	<table>
@@ -8,27 +8,26 @@
             <th scope="col">Amount</th>
             <th scope="col">From</th>
             <th scope="col">To </th>
-			<th scope="col">Result </th>
+			      <th scope="col">Result </th>
             <th scope="col"> Rate </th>
-			<th scope="col">Conversion Date </th>
+			      <th scope="col">Conversion Date </th>
         </tr>
       </thead>
       <tbody>
         <%if @conversions!= nil%>
-		   <% @conversions.each do |c| %>
-		     <tr> 
+		      <% @conversions.each do |c| %>
+		        <tr> 
                 <td><strong><%= c.id %></strong></td>
                 <td><strong><%= c.Amount %></strong></td>
                 <td><strong><%= c.from %></strong> </td> 
                 <td> <strong><%= c.to %></strong></td>
-				<td> <strong><%= c.result %></strong></td>
-				<td>  <strong><%= c.rate %></strong></td>
-			 	<td> <strong><%= c.conversion_Date %></strong></td>
-             </tr>
-            <% end %>
-		<% end %>
-         
-     </tbody>
+				        <td> <strong><%= c.result %></strong></td>
+				        <td>  <strong><%= c.rate %></strong></td>
+			 	        <td> <strong><%= c.conversion_Date %></strong></td>
+            </tr>
+          <% end %>
+		    <% end %>  
+      </tbody>
     </table>
 </div>
 		
