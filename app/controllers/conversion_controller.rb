@@ -1,8 +1,8 @@
+require 'money/bank/currencylayer_bank' 
+
 class ConversionController < ApplicationController
 	
 	include Currency
-	a=$api
-	
 	
 	post'/newConversion' do
 		
@@ -34,5 +34,10 @@ class ConversionController < ApplicationController
 	
 	end 
 	
+	
+	
+	
+	
+		
 	
 end

@@ -10,25 +10,28 @@ require 'execjs'
 class ApplicationController < Sinatra::Base
 	
 	
-	include Currency
-	
-	#load all api data and background picture
+	#load all api data 
 	data_api=$api
-	background_pic=$picture_bg
 	
-  
+
   	configure do
     	set :views, "app/views"
 		set :public_dir, "public"
+		pictures=Dir.glob("public/assets/img/*.{jpg,JPG}")
+        pictures.each{ |p|
+            $picture_bg=p.sub!(/public\//, '') 
+        }
 		
 	end
+	
+
 	
 	
 	#getting all conversions from database
 	get '/' do
 		@ap=data_api
 		@conversions = Conversion.all
-		@picture=background_pic
+		@picture=$picture_bg
 		
 	erb :index
 	
@@ -45,7 +48,7 @@ class ApplicationController < Sinatra::Base
 		@from=params[:from]
 		@to=params[:to]
 		@ap=data_api
-		@picture=background_pic
+		@picture=$picture_bg
 		
 		erb :index
 
