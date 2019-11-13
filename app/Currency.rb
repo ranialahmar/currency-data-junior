@@ -4,7 +4,7 @@ module Currency
              
         I18n.enforce_available_locales=false
 
-    
+        #configuration
         $mclb = Money::Bank::CurrencylayerBank.new
         $mclb.access_key =$api_key
         $mclb.cache = 'cache'
